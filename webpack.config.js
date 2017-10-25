@@ -1,8 +1,8 @@
 var webpack   = require('webpack');
-var path 	  = require('path');
+var path 	    = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, 'public/dist/js');
-var APP_DIR   = path.resolve(__dirname, 'public/src/js');
+var APP_DIR   = path.resolve(__dirname, 'public/src/js/');
 
 var config = {
   entry: APP_DIR + '/index.jsx',
@@ -26,7 +26,10 @@ var config = {
     extensions: ['.js', '.jsx']
   },
   
+  devtool: 'inline-source-map',
+
   devServer: {
+    inline : true,
     historyApiFallback: true,
     contentBase: './'
   }

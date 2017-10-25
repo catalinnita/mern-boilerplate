@@ -11,8 +11,8 @@
   },
   
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "compile": "webpack --config webpack.config.js"
+    "start": "npm run build",
+    "build": "webpack -p && webpack-dev-server"
   },
 
   "dependencies": {
