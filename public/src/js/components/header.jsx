@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {Component} from 'react';
+import Logo from './header/logo';
 
-class AppHeader extends React.Component {
+class AppHeader extends Component {
 	
 	render() {
 
-		return <div>Header</div>;
+		return (
+			<div>
+				<Logo />		
+			</div>
+		);
 
 	}
 

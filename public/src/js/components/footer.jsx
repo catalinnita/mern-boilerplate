@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {Component} from 'react';
 
-class AppFooter extends React.Component {
+class AppFooter extends Component {
 	
 	render() {
 
