@@ -1,32 +1,55 @@
 var webpack   = require('webpack');
 var path 	    = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'public/dist/js');
-var APP_DIR   = path.resolve(__dirname, 'public/src/js/');
+var BUILD_DIR = path.resolve(__dirname, 'public/dist');
+var APP_DIR   = path.resolve(__dirname, 'public/src/');
 
 var config = {
-  entry: APP_DIR + '/index.jsx',
+  entry: [
+    APP_DIR + '/js/index.jsx',
+    APP_DIR + '/sass/main.scss'
+  ],
  
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'js/bundle.js'
   },
  
   module: {
-    loaders: [{
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['react', 'es2015', 'stage-1']
-      }
-    }]
-  },
+    rules:[
+      {
+        test: /\.jsx$/,
+        include: APP_DIR,
+        use: [
+          {
+            loader: 'babel-loader',
+            query: {
+              presets: ['react', 'es2015', 'stage-1']
+            }
+          }
+        ]
+      },
+      {
+        test: /\.scss$/,
+        include: APP_DIR,
+        use: [{
+          loader: "style-loader"
+        }, {
+          loader: "css-loader"
+        }, {
+          loader: "sass-loader"
+        }]
+      },
 
-  resolve: {
-    extensions: ['.js', '.jsx']
+    ]
+
   },
   
   devtool: 'inline-source-map',
+
+  resolve: {
+     extensions: [".js", ".jsx", ".sass"]
+  },
 
   devServer: {
     inline : true,
