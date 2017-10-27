@@ -1,18 +1,25 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import AppHeader from './components/header'
-import AppContent from './components/content'
-import AppFooter from './components/footer'
+import Home from './pages/home'
+import Category from './pages/category'
+import Product from './pages/product'
+import Page from './pages/page'
+
 
 const App = () => {
 	
 	return (
-		<div className="container">
-			<header><AppHeader /></header>
-			<section><AppContent /></section>
-			<footer><AppFooter /></footer>
-		</div>
+		<Router>
+			<div>
+		    	<Route exact path="/" component={Home}/>
+		    	<Route path="/category" component={Category}/>
+				<Route path="/product" component={Product}/>
+				<Route path="/page" component={Page}/>
+			</div>
+		    
+		</Router>
 	);
 
 }

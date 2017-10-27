@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Logo from './header/logo';
+import Menu from './header/menu';
 
 class AppHeader extends Component {
 	
@@ -7,7 +8,8 @@ class AppHeader extends Component {
 
 		return (
 			<div>
-				<Logo />		
+				<Logo />
+				<Menu />		
 			</div>
 		);
 
