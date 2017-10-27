@@ -12,27 +12,14 @@ class Page extends Component {
 			<div className="container">
 				<header><AppHeader /></header>
 				<section>
-					<Route path="/page/:slug" component={PageContent}/>
+					<div>
+				    	<h3>ID: {this.props.match.params.slug}</h3>
+				  	</div>
 				</section>
 				<footer><AppFooter /></footer>
 			</div>
 		);
 	}
-}
-
-class PageContent extends Component {
-
-	render() {
-
-		console.log(this.props);
-
-		return (
-			<div>
-		    	<h3>ID: {this.props.match.params.slug}</h3>
-		  	</div>
-		)
-	}
-
 }
 
 export default Page;

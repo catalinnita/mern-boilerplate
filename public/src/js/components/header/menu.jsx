@@ -11,7 +11,7 @@ class Menu extends Component {
 				<li><Link to="/">Home</Link></li>
 				<li><Link to="/category">Category</Link></li>
 				<li><Link to="/product">Product</Link></li>
-				<li><Link to="/page">Page</Link></li>
+				<li><Link to="/page-slug">Page</Link></li>
 
 			</ul>
 
