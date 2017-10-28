@@ -7,13 +7,15 @@ class Menu extends Component {
 
 		return(
 
-			<ul>
-				<li><Link to="/">Home</Link></li>
-				<li><Link to="/category">Category</Link></li>
-				<li><Link to="/product">Product</Link></li>
-				<li><Link to="/page-slug">Page</Link></li>
+			<nav className="navbar navbar-dark bg-dark">
+				<ul className="navbar-nav mr-auto">
+					<li className="nav-item active"><Link to="/" className="nav-link">Home</Link></li>
+					<li class="nav-item"><Link to="/category" className="nav-link">Category</Link></li>
+					<li class="nav-item"><Link to="/product" className="nav-link">Product</Link></li>
+					<li class="nav-item"><Link to="/page-slug" className="nav-link">Page</Link></li>
 
-			</ul>
+				</ul>
+			</nav>
 
 		);
 
