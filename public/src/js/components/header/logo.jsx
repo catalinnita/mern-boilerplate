@@ -1,10 +1,11 @@
 import React, {PureComponent} from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 class Logo extends PureComponent {
 	
 	render() {
 
-		return <div>Logo Here</div>;
+		return <Link to="/" className="navbar-brand">Logo here</Link>;
 
 	}
 
