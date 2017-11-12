@@ -1,3 +1,6 @@
+import User from '../../db/models/user'
+import jwt from 'jsonwebtoken'
+import config from '../../config'
 
 const apiLogin = (req, res) => {
 
@@ -30,7 +33,7 @@ const apiLogin = (req, res) => {
 
         // if user is found and password is right
         // create a token
-        var token = jwt.sign(user, app.get('superSecret'), {
+        var token = jwt.sign(user.toJSON(), config.super_secret, {
           expiresIn: 60*60*24 // expires in 24 hours -> set this to a config
         });
 

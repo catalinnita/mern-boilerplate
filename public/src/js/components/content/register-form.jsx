@@ -52,6 +52,18 @@ function validate( values ) {
 		errors.email = 'Please enter a valid email address';
 	}
 
+	if ( !values.password ) {
+		errors.password = 'Please enter a password';
+	}
+
+	if ( !values.passwordv ) {
+		errors.passwordv = 'Please enter the password again';
+	}
+
+	if( values.password != values.passwordv ) {
+		errors.passwordv = 'Passwords don\'t match';
+	}
+
 	return errors;
 
 }

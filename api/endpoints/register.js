@@ -1,3 +1,5 @@
+import User from '../../db/models/user'
+
 const apiRegister = (req, res) => {
 
       var r = req.body;

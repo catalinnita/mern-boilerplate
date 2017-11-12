@@ -18,6 +18,7 @@ class LoginFormComponent extends Component {
 	}
 
 	onSubmit( values ) {
+		console.log(values);
 		this.props.doLogin(values);
 
 	}
@@ -48,7 +49,12 @@ function validate( values ) {
 	const errors = {};
 
 	if ( !values.email ) {
-		errors.email = 'Please enter a title';
+		errors.email = 'Please enter a valid email address';
+	}
+
+
+	if ( !values.password ) {
+		errors.password = 'Please enter a password';
 	}
 
 	return errors;
@@ -58,4 +64,6 @@ function validate( values ) {
 export default reduxForm({
 	validate, 
 	form: 'loginForm'
-})(LoginFormComponent);
+})(
+	connect(null, { doLogin })(LoginFormComponent)
+);

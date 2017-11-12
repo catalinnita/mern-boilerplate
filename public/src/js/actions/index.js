@@ -1,13 +1,16 @@
-import axios from 'axios';
-const ROOT_URL = 'http://scrambled-data.com:3000/api'
+import axios from 'axios'
+import config from '../../../../config'
 
 export const DO_LOGIN = 'do_login';
 export const DO_REGISTER = 'do_register';
 
-export function doLogin (values) {
+export const doLogin = (values) => {
 
-	//https://www.udemy.com/react-redux/learn/v4/t/lecture/6946620?start=0
-	const request = axios.post( `${ROOT_URL}/authenticate/`, values );
+	var endpoint_url = config.api_url + '/login/';
+
+	const request = axios.post( endpoint_url, values );
+
+	console.log(request);
 
 	return {
 		type: DO_LOGIN, 
@@ -16,18 +19,20 @@ export function doLogin (values) {
 
 }
 
-export function doRegister (values) {
+export const doRegister = (values) => {
 
-	//https://www.udemy.com/react-redux/learn/v4/t/lecture/6946620?start=0
+	var endpoint_url = config.api_url + '/register/';
+
 	const req = {
 		method: 'post',
-		url: `${ROOT_URL}/register/`,
+		url: endpoint_url,
 		data: {
 		  email: values.email,
 		  password: values.password
 		}
      }
-     console.log(req);
+    
+    console.log(req);
 	const request = axios(req);
 
 	return {
