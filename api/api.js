@@ -1,7 +1,7 @@
 // modules
 import express from 'express'
-//import db from '../db/db'
-import setRoutes from './routes.js'
+import db from '../db/db'
+import setRoutes from './routes'
 
 var app = express();
 

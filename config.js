@@ -1,7 +1,7 @@
 module.exports = {
 
     'dbname' : 'mongodb://localhost/myUserAdmin',
-    'dbuser' : '', 
-    'dbpass' : ''
+    'dbuser' : 'myUserAdmin', 
+    'dbpass' : 'abc123'
 
 };
