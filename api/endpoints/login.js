@@ -18,7 +18,10 @@ const apiLogin = (req, res) => {
     // no user 
     if (!user) {
 
-      res.json({ success: false, message: 'Authentication failed. User not found.' });
+      //var json = JSON.stringify({ success: false, message: 'Authentication failed. User not found.' });
+      res.writeHead(400, {'Content-Type': 'application/json'});
+      res.end(json);
+      
       
     // there is a user 
     } else if (user) {
@@ -26,7 +29,9 @@ const apiLogin = (req, res) => {
       // password doesn't match
       if (user.password != req.body.password) {
           
-        res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+        //var json = JSON.stringify({ success: false, message: 'Authentication failed. Wrong password.' });
+        res.writeHead(400, {'Content-Type': 'application/json'});
+        res.end(json);
         
       // password matches  
       } else {
@@ -38,11 +43,15 @@ const apiLogin = (req, res) => {
         });
 
         // return the information including token as JSON
-        res.json({
+        var json = JSON.stringify({
           success : true,
           message : 'Enjoy your token!',
           token   : token
         });
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.end(json);
+
+      
       }
 
     }

@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 
-import Reducers from './reducers'
+import Store from './store/store'
 
+// pages 
 import Home from './pages/home'
 import Login from './pages/login'
 import Register from './pages/register'
@@ -14,18 +14,14 @@ import Product from './pages/product'
 import Page from './pages/page'
 import FourOFour from './pages/fourofour'
 
-
-const CreateStoreWithMiddleware = applyMiddleware()(createStore)
-
 const App = () => {
 	
 	return (
-		<Provider store={CreateStoreWithMiddleware(Reducers)}>
+		<Provider store={Store}>
 			<Router>
 				<Switch>
 				
 			    	<Route exact path="/" component={Home} />
-			    		
 			    	<Route path="/login" component={Login} />
 			    	<Route path="/register" component={Register} />
 

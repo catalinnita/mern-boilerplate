@@ -18,6 +18,18 @@ var config = {
   module: {
     rules:[
       {
+        test: /\.js$/,
+        include: APP_DIR,
+        use: [
+          {
+            loader: 'babel-loader',
+            query: {
+              presets: ['react', 'es2015', 'stage-1']
+            }
+          }
+        ]
+      },
+      {
         test: /\.jsx$/,
         include: APP_DIR,
         use: [

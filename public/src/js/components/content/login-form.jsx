@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { doLogin } from '../../actions';
+import {doLogin} from '../../actions/userActions';
 
 class LoginFormComponent extends Component {
 
@@ -18,13 +18,11 @@ class LoginFormComponent extends Component {
 	}
 
 	onSubmit( values ) {
-		console.log(values);
 		this.props.doLogin(values);
 
 	}
 
 	render() {
-
 		const { handleSubmit } = this.props;
 
 		return (

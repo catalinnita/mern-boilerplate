@@ -1,19 +1,20 @@
-import _ from 'loadash';
-import { DO_LOGIN } from '../actions';
+import { DO_LOGIN } from '../actions/userActions';
 
-export default function( state={}, action ) {
+export default function reducer( state={}, action ) {
+	
+	switch( action.type ){
 
-	switch (action.type) {
+		case 'DO_LOGIN_FAILURE': {
+			return { ...state, error: action.payload, loggedin: 'false' }
 
-		case DO_LOGIN:
-			return _.mapKeys(action.payload.data);
+		}
 
-		case DO_REGISTER:
-			return _.mapKeys(action.payload.data);
-			
-		default:
-			return state;
+		case 'DO_LOGIN_SUCCESS': {
+			return { ...state, success: action.payload, loggedin: 'true' }
+
+		}
 
 	}
 
+	return state
 }
